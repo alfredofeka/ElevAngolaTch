@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitar Orçamento | Elevangola Tech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --azul-escuro: #0a192f;
+            --dourado: #b8923d;
+            --branco: #ffffff;
+            --cinza-fundo: #0f172a; /* Fundo mais escuro e elegante */
+            --whatsapp: #25d366;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--cinza-fundo);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: var(--branco);
+        }
+
+        .container-form {
+            width: 90%;
+            max-width: 500px;
+            background: var(--azul-escuro);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            border: 1px solid rgba(184, 146, 61, 0.3);
+            text-align: center;
+            position: relative;
+        }
+
+        /* Botão para voltar manualmente se quiser */
+        .btn-voltar {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: var(--dourado);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .logo-form img {
+            height: 60px;
+            margin-bottom: 15px;
+        }
+
+        .container-form h2 {
+            color: var(--dourado);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .container-form p {
+            font-size: 0.9rem;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--dourado);
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #1e293b;
+            background: #1e293b;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: var(--dourado);
+        }
+
+        .btn-enviar {
+            width: 100%;
+            background: var(--dourado);
+            color: var(--azul-escuro);
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-enviar:hover {
+            background: #9a7a33;
+            transform: translateY(-2px);
+        }
+
+        .footer-form {
+            margin-top: 25px;
+            font-size: 0.75rem;
+            color: #666;
+        }
+
+        @media (max-width: 480px) {
+            .container-form { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-form">
+        <a href="index.html" class="btn-voltar"><i class="fas fa-arrow-left"></i> Voltar</a>
+        
+        <div class="logo-form">
+            <img src="logo.png" alt="Elevangola">
+            <h2>Orçamento Express</h2>
+        </div>
+        
+        <p>Preencha os dados técnicos para receber a sua cotação em Kwanzas.</p>
+
+        <form id="formFinal">
+            <div class="form-group">
+                <label>NOME DO CLIENTE / EMPRESA</label>
+                <input type="text" id="nome" placeholder="Ex: Engenheiro Mateus" required>
+            </div>
+
+            <div class="form-group">
+                <label>LOCALIZAÇÃO (PROVÍNCIA/BAIRRO)</label>
+                <input type="text" id="local" placeholder="Ex: Luanda, Benfica" required>
+            </div>
+
+            <div class="form-group">
+                <label>TIPO DE PROJECTO</label>
+                <select id="tipo">
+                    <option value="Residencial (Vivenda)">Residencial (Vivenda)</option>
+                    <option value="Edifício de Apartamentos">Edifício de Apartamentos</option>
+                    <option value="Escritórios/Comercial">Escritórios / Comercial</option>
+                    <option value="Industrial/Carga">Industrial / Carga</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>NÚMERO DE PISOS (PARAGENS)</label>
+                <input type="number" id="andares" placeholder="Ex: 3" required>
+            </div>
+
+            <button type="button" onclick="processarEnvio()" class="btn-enviar">
+                SOLICITAR CONSULTA <i class="fab fa-whatsapp"></i>
+            </button>
+        </form>
+
+        <div class="footer-form">
+            Elevangola Tech &copy; 2026 | Especialistas em Mobilidade Vertical
+        </div>
+    </div>
+
+    <script>
+        function processarEnvio() {
+            const nome = document.getElementById('nome').value;
+            const local = document.getElementById('local').value;
+            const tipo = document.getElementById('tipo').value;
+            const andares = document.getElementById('andares').value;
+
+            if(!nome || !local || !andares) {
+                alert("Por favor, preencha todos os campos antes de enviar.");
+                return;
+            }
+
+            // O seu número de suporte
+            const meuNumero = "244924433318"; 
+
+            // Criar a mensagem
+            const mensagem = `*NOVA SOLICITAÇÃO DE ORÇAMENTO*%0A%0A` +
+                             `*Cliente:* ${nome}%0A` +
+                             `*Local:* ${local}%0A` +
+                             `*Projecto:* ${tipo}%0A` +
+                             `*Pisos:* ${andares}%0A%0A` +
+                             `_Enviado via Website Elevangola_`;
+
+            // 1. Abrir o WhatsApp
+            window.open(`https://wa.me/${meuNumero}?text=${mensagem}`, '_blank');
+
+            // 2. Redirecionar de volta para a página inicial após 1 segundo
+            setTimeout(function() {
+                window.location.href = "index.html";
+            }, 1000);
+        }
+    </script>
+
+</body>
+</html>

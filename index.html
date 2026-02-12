@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevangola Tech | Elevadores em Angola</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --azul-escuro: #0a192f;
+            --dourado: #b8923d;
+            --branco: #ffffff;
+            --cinza: #f4f4f4;
+            --whatsapp: #25d366;
+        }
+
+        * { box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; background: var(--branco); line-height: 1.6; }
+
+        /* HEADER E MENU FIXO */
+        header {
+            background-color: var(--azul-escuro);
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 2px solid var(--dourado);
+        }
+
+        .logo { display: flex; align-items: center; text-decoration: none; }
+        .logo img { height: 40px; margin-right: 10px; }
+        .logo h1 { color: white; margin: 0; font-size: 1.2rem; }
+
+        nav a { color: white; text-decoration: none; margin-left: 15px; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; }
+
+        /* BANNER DINÂMICO AJUSTADO */
+        .slider-container {
+            width: 100%;
+            height: 60vh; 
+            position: relative;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .slides {
+            display: flex;
+            width: 500%;
+            height: 100%;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .slide {
+            width: 20%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide-overlay {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 85%;
+            border-radius: 10px;
+            border-left: 5px solid var(--dourado);
+        }
+
+        .slide-overlay h2 { font-size: 1.5rem; margin: 0 0 10px 0; color: var(--dourado); }
+        .slide-overlay p { font-size: 0.95rem; margin: 0; }
+
+        /* SEÇÃO DE CONTEÚDO */
+        .conteudo-extra { padding: 40px 5%; text-align: center; }
+        .grid-servicos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: var(--cinza);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-top: 3px solid var(--dourado);
+        }
+
+        .card i { font-size: 2rem; color: var(--azul-escuro); margin-bottom: 15px; }
+
+        /* BOTÃO WHATSAPP FLUTUANTE (FIXO) */
+        .btn-whatsapp-fixo {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: var(--whatsapp);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            box-shadow: 2px 4px 15px rgba(0,0,0,0.3);
+            z-index: 9999;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .btn-whatsapp-fixo:hover { transform: scale(1.1); }
+
+        /* RESPONSIVIDADE PARA TELEMÓVEL */
+        @media (max-width: 768px) {
+            header { padding: 10px 3%; }
+            .logo h1 { font-size: 1rem; }
+            nav { display: none; } /* Esconde menu texto no telemóvel para focar no conteúdo */
+            .slider-container { height: 50vh; }
+            .slide-overlay h2 { font-size: 1.2rem; }
+            .slide-overlay p { font-size: 0.85rem; }
+            .btn-whatsapp-fixo { bottom: 15px; right: 15px; width: 50px; height: 50px; font-size: 26px; }
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background: var(--dourado);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">
+            <img src="logo.png" alt="Logo">
+            <h1>ELEVANGOLA TECH</h1>
+        </a>
+        <nav>
+            <a href="#home">Início</a>
+            <a href="#modelos">Modelos</a>
+            <a href="#servicos">Serviços</a>
+        </nav>
+    </header>
+
+    <div class="slider-container" id="home">
+        <div class="slides" id="slide-container">
+            <div class="slide" style="background-image: url('banner1.png');">
+                <div class="slide-overlay">
+                    <h2>TECNOLOGIA DE PONTA</h2>
+                    <p>Elevadores chineses robustos adaptados para Angola.</p>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('banner2.png');">
+                <div class="slide-overlay">
+                    <h2>SEGURANÇA ELÉTRICA</h2>
+                    <p>Sistemas ARD e estabilizadores integrados.</p>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('banner3.png');">
+                <div class="slide-overlay">
+                    <h2>SUPORTE LOCAL</h2>
+                    <p>Equipa de manutenção em Luanda 24h por dia.</p>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('banner4.png');">
+                <div class="slide-overlay">
+                    <h2>PAGAMENTO FACILITADO</h2>
+                    <p>Cotações transparentes e orçamentos em Kwanzas.</p>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('banner5.png');">
+                <div class="slide-overlay">
+                    <h2>ESTILO E MODERNIDADE</h2>
+                    <p>O design que o seu edifício de prestígio merece.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="https://wa.me/244924433318" class="btn-whatsapp-fixo" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <section class="conteudo-extra" id="modelos">
+        <h2>Soluções para Angola</h2>
+        <div class="grid-servicos">
+            <div class="card">
+                <i class="fas fa-building"></i>
+                <h3>Residenciais</h3>
+                <p>Conforto e silêncio para a sua casa ou prédio residencial.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-city"></i>
+                <h3>Comerciais</h3>
+                <p>Elevadores de alta performance para escritórios e lojas.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-truck-loading"></i>
+                <h3>Carga</h3>
+                <p>A força necessária para o seu armazém ou indústria.</p>
+            </div>
+        </div>
+        <a href="orcamento.html" class="btn-cta">FALAR COM UM CONSULTOR</a>
+    </section>
+
+    <footer style="background: var(--azul-escuro); color: white; padding: 20px; text-align: center; font-size: 0.8rem;">
+        <p>&copy; 2026 Elevangola Tech - Elevando Angola. Luanda.</p>
+    </footer>
+
+    <script>
+        const container = document.getElementById('slide-container');
+        let index = 0;
+        function showNextSlide() {
+            index++;
+            if (index > 4) { index = 0; }
+            container.style.transform = `translateX(${-index * 20}%)`;
+        }
+        setInterval(showNextSlide, 4000);
+    </script>
+</body>
+</html>
