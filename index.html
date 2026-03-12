@@ -40,15 +40,44 @@
         nav a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; }
         nav a:hover { color: var(--dourado-premium); }
 
-        /* BANNER */
-        .slider-container { width: 100%; height: 70vh; position: relative; overflow: hidden; background: #000; }
+        /* BANNER AJUSTADO (VISIBILIDADE TOTAL) */
+        .slider-container { 
+            width: 100%; 
+            height: auto; 
+            aspect-ratio: 16 / 7; /* Proporção para não cortar a foto */
+            position: relative; 
+            overflow: hidden; 
+            background: #000; 
+        }
+
         .slides { display: flex; width: 500%; height: 100%; transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
-        .slide { width: 20%; height: 100%; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; }
-        .slide-overlay { background: rgba(10, 42, 77, 0.85); color: white; padding: 40px; text-align: center; width: 80%; max-width: 800px; border-radius: 4px; border-top: 4px solid var(--dourado-premium); }
-        .slide-overlay h2 { font-size: 2rem; margin: 0 0 15px 0; color: var(--dourado-premium); text-transform: uppercase; }
+        
+        .slide { 
+            width: 20%; 
+            height: 100%; 
+            background-size: 100% 100%; /* Garante que a foto aparece toda */
+            background-repeat: no-repeat;
+            background-position: center; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+        }
+
+        .slide-overlay { 
+            background: rgba(10, 42, 77, 0.7); 
+            color: white; 
+            padding: 30px; 
+            text-align: center; 
+            width: 70%; 
+            max-width: 600px; 
+            border-radius: 4px; 
+            border-top: 4px solid var(--dourado-premium); 
+        }
+
+        .slide-overlay h2 { font-size: 1.8rem; margin: 0 0 10px 0; color: var(--dourado-premium); text-transform: uppercase; }
 
         /* SEÇÕES */
-        .secao { padding: 80px 5%; text-align: center; }
+        .secao { padding: 60px 5%; text-align: center; }
         .bg-cinza { background: var(--cinza-claro); }
         
         /* SOBRE NÓS */
@@ -63,7 +92,7 @@
         .card i { font-size: 2.5rem; color: var(--azul-corporativo); margin-bottom: 20px; }
 
         /* BOTÕES */
-        .btn-cta { display: inline-block; padding: 15px 35px; border-radius: 4px; text-decoration: none; font-weight: bold; letter-spacing: 1px; cursor: pointer; border: none; }
+        .btn-cta { display: inline-block; padding: 15px 35px; border-radius: 4px; text-decoration: none; font-weight: bold; letter-spacing: 1px; cursor: pointer; border: none; font-size: 0.9rem; }
         .btn-dourado { background: var(--dourado-premium); color: white; }
         .btn-azul { background: var(--azul-corporativo); color: white; }
         
@@ -72,7 +101,13 @@
         /* MODAL */
         #modalSimulador { display:none; position:fixed; z-index:10001; left:0; top:0; width:100%; height:100%; background-color: rgba(0,0,0,0.85); align-items: center; justify-content: center; }
 
-        @media (max-width: 768px) { nav { display: none; } .slider-container { height: 50vh; } .slide-overlay h2 { font-size: 1.3rem; } }
+        @media (max-width: 768px) { 
+            nav { display: none; } 
+            .slider-container { aspect-ratio: 4 / 3; } 
+            .slide-overlay h2 { font-size: 1.2rem; }
+            .sobre-container { text-align: center; }
+            .sobre-texto h2 { border-left: none; padding-left: 0; }
+        }
     </style>
 </head>
 <body>
@@ -92,14 +127,14 @@
 
     <div class="slider-container" id="home">
         <div class="slides" id="slide-container">
-            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('banner1.png');">
-                <div class="slide-overlay"><h2>Engenharia de Precisão</h2><p>Elevadores de alta tecnologia para o mercado angolano.</p></div>
+            <div class="slide" style="background-image: url('banner1.png');">
+                <div class="slide-overlay"><h2>Engenharia de Precisão</h2><p>Tecnologia de ponta em elevação para Angola.</p></div>
             </div>
-            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('banner2.png');">
-                <div class="slide-overlay"><h2>Segurança Certificada</h2><p>Sistemas ARD e estabilizadores de tensão integrados.</p></div>
+            <div class="slide" style="background-image: url('banner2.png');">
+                <div class="slide-overlay"><h2>Segurança Máxima</h2><p>Sistemas ARD e proteção elétrica integrada.</p></div>
             </div>
-            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('banner3.png');">
-                <div class="slide-overlay"><h2>Assistência Técnica 24h</h2><p>Manutenção especializada em toda Luanda.</p></div>
+            <div class="slide" style="background-image: url('banner3.png');">
+                <div class="slide-overlay"><h2>Manutenção 24h</h2><p>Equipa técnica local sempre disponível em Luanda.</p></div>
             </div>
         </div>
     </div>
@@ -108,28 +143,28 @@
         <div class="sobre-container">
             <div class="sobre-texto">
                 <h2>Sobre a ENGELEVATECH</h2>
-                <p>A <strong>ENGELEVATECH</strong> é uma empresa angolana especializada em engenharia de transporte vertical. Focamos na importação direta, instalação e manutenção de elevadores com tecnologia de ponta proveniente dos maiores fabricantes mundiais.</p>
-                <p>Nossa missão é elevar o padrão de infraestrutura em Angola, oferecendo soluções robustas que garantem segurança, conforto e eficiência energética para edifícios residenciais, comerciais e industriais.</p>
+                <p>A <strong>ENGELEVATECH</strong> é uma referência em engenharia de transporte vertical em Angola. Somos especialistas na importação, instalação e assistência técnica de elevadores modernos.</p>
+                <p>O nosso foco é trazer o que há de melhor na tecnologia global para os edifícios de Angola, garantindo que cada viagem seja segura, suave e eficiente.</p>
             </div>
             <div style="flex: 1; min-width: 300px; text-align: center;">
-                <i class="fas fa-microchip" style="font-size: 10rem; color: var(--cinza-claro);"></i>
+                <i class="fas fa-building" style="font-size: 8rem; color: var(--cinza-claro);"></i>
             </div>
         </div>
     </section>
 
     <section class="secao bg-cinza" id="solucoes">
-        <h2>Nossas Soluções Técnicas</h2>
+        <h2>Nossas Soluções</h2>
         <div class="grid-servicos">
-            <div class="card"><i class="fas fa-hotel"></i><h3>Residenciais</h3><p>Conforto e silêncio para a sua moradia ou prédio.</p></div>
-            <div class="card"><i class="fas fa-briefcase"></i><h3>Comerciais</h3><p>Alta performance para escritórios e centros comerciais.</p></div>
-            <div class="card"><i class="fas fa-dolly-flatbed"></i><h3>Carga</h3><p>Robustez para armazéns e logística industrial.</p></div>
+            <div class="card"><i class="fas fa-home"></i><h3>Residenciais</h3><p>Elevadores elegantes e silenciosos para a sua moradia.</p></div>
+            <div class="card"><i class="fas fa-industry"></i><h3>Carga e Industrial</h3><p>Robustez técnica para grandes pesos e logística.</p></div>
+            <div class="card"><i class="fas fa-hotel"></i><h3>Comerciais</h3><p>Eficiência para prédios de escritórios e hotéis.</p></div>
         </div>
 
         <div style="margin-top: 50px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
             <button class="btn-cta btn-dourado" onclick="abrirSimulador()">
                 <i class="fas fa-calculator"></i> SIMULAR EM KWANZAS
             </button>
-            <a href="https://wa.me/244924433318?text=Olá! Gostaria de solicitar uma consulta técnica para um projeto de elevadores." class="btn-cta btn-azul" target="_blank">
+            <a href="https://wa.me/244924433318?text=Olá! Gostaria de solicitar uma consulta técnica da ENGELEVATECH." class="btn-cta btn-azul" target="_blank">
                 <i class="fab fa-whatsapp"></i> SOLICITAR CONSULTA
             </a>
         </div>
@@ -140,16 +175,16 @@
     <div id="modalSimulador">
         <div style="background: white; padding: 30px; border-radius: 8px; width: 95%; max-width: 450px; border-top: 5px solid var(--dourado-premium); position: relative;">
             <span onclick="fecharSimulador()" style="position: absolute; right: 20px; top: 10px; font-size: 28px; cursor: pointer; color: #666;">&times;</span>
-            <h3 style="color: var(--azul-corporativo); margin-top: 0;">Simulador de Orçamento</h3>
+            <h3 style="color: var(--azul-corporativo); margin-top: 0;">Simulador ENGELEVATECH</h3>
             
             <div style="text-align: left; margin-top: 15px;">
-                <label style="font-weight: bold;">Número de Pisos:</label>
-                <input type="number" id="pisos" placeholder="Ex: 3" style="width: 100%; padding: 12px; margin: 10px 0 20px 0; border: 1px solid #ccc; border-radius: 4px;">
+                <label style="font-weight: bold; font-size: 0.9rem;">Número de Pisos:</label>
+                <input type="number" id="pisos" placeholder="Ex: 4" style="width: 100%; padding: 12px; margin: 10px 0 20px 0; border: 1px solid #ccc; border-radius: 4px;">
 
-                <label style="font-weight: bold;">Tipo de Elevador:</label>
+                <label style="font-weight: bold; font-size: 0.9rem;">Tipo de Equipamento:</label>
                 <select id="capacidade" style="width: 100%; padding: 12px; margin: 10px 0 20px 0; border: 1px solid #ccc; border-radius: 4px;">
-                    <option value="45000000">Residencial (4-6 pessoas)</option>
-                    <option value="65000000">Comercial (8-10 pessoas)</option>
+                    <option value="45000000">Residencial (Standard)</option>
+                    <option value="65000000">Comercial (Alta Performance)</option>
                     <option value="85000000">Carga / Industrial</option>
                 </select>
 
@@ -159,15 +194,15 @@
             <div id="resultado" style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 4px; display: none; text-align: center; border: 1px dashed var(--dourado-premium);">
                 <span style="color: var(--azul-corporativo); font-size: 1.3rem; font-weight: bold;" id="valor-aoa">0</span> <small>Kz</small>
                 <hr style="opacity: 0.1; margin: 15px 0;">
-                <a id="btn-validar-wa" href="#" target="_blank" style="color: var(--whatsapp); text-decoration: none; font-weight: bold;">
-                    <i class="fab fa-whatsapp"></i> Validar Orçamento no WhatsApp
+                <a id="btn-validar-wa" href="#" target="_blank" style="color: var(--whatsapp); text-decoration: none; font-weight: bold; font-size: 0.9rem;">
+                    <i class="fab fa-whatsapp"></i> Validar no WhatsApp
                 </a>
             </div>
         </div>
     </div>
 
     <footer style="background: var(--azul-corporativo); color: white; padding: 40px 5%; text-align: center; border-top: 5px solid var(--dourado-premium);" id="contacto">
-        <p style="font-weight: bold;">ENGELEVATECH - Engenharia e Tecnologia de Elevação, Lda.</p>
+        <p style="font-weight: bold; font-size: 1.1rem;">ENGELEVATECH - Engenharia e Tecnologia de Elevação, Lda.</p>
         <p>Luanda, Angola | <i class="fas fa-phone"></i> 924 433 318</p>
         <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 20px;">&copy; 2026 Todos os direitos reservados.</p>
     </footer>
@@ -189,26 +224,3 @@
             const pisos = document.getElementById('pisos').value;
             const baseValue = document.getElementById('capacidade').value;
             const display = document.getElementById('resultado');
-            const valorDisplay = document.getElementById('valor-aoa');
-
-            if(pisos > 0) {
-                let total = parseInt(baseValue) + (parseInt(pisos) * 2500000); 
-                let valorFormatado = total.toLocaleString('pt-AO');
-                valorDisplay.innerText = valorFormatado;
-                display.style.display = 'block';
-
-                // Atualizar link do WhatsApp com os dados do simulador
-                const msg = `Olá! Usei o simulador no site. Orçamento estimado para ${pisos} pisos: ${valorFormatado} Kz. Gostaria de uma validação técnica.`;
-                document.getElementById('btn-validar-wa').href = `https://wa.me/244924433318?text=${encodeURIComponent(msg)}`;
-            } else {
-                alert("Por favor, insira o número de pisos.");
-            }
-        }
-
-        window.onclick = function(event) {
-            let modal = document.getElementById('modalSimulador');
-            if (event.target == modal) fecharSimulador();
-        }
-    </script>
-</body>
-</html>
