@@ -20,43 +20,43 @@
         /* HEADER */
         header {
             background-color: var(--azul-corporativo);
-            padding: 15px 5%;
+            padding: 10px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
-            width: 100%;
             z-index: 1000;
             border-bottom: 3px solid var(--dourado-premium);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
         .logo { display: flex; align-items: center; text-decoration: none; }
-        .logo img { height: 50px; margin-right: 15px; }
-        .logo h1 { color: white; margin: 0; font-size: 1.4rem; font-weight: 700; letter-spacing: 1px; }
+        .logo img { height: 40px; margin-right: 12px; }
+        .logo h1 { color: white; margin: 0; font-size: 1.2rem; font-weight: 700; }
         .logo span { color: var(--dourado-premium); }
 
-        nav a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; }
-        nav a:hover { color: var(--dourado-premium); }
+        nav a { color: white; text-decoration: none; margin-left: 15px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; }
 
-        /* BANNER AJUSTADO (VISIBILIDADE TOTAL) */
+        /* BANNER DINÂMICO - METADE DO TAMANHO (35vh) */
         .slider-container { 
             width: 100%; 
-            height: auto; 
-            aspect-ratio: 16 / 7; /* Proporção para não cortar a foto */
+            height: 35vh; /* Metade do tamanho anterior */
             position: relative; 
             overflow: hidden; 
             background: #000; 
         }
 
-        .slides { display: flex; width: 500%; height: 100%; transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+        .slides { 
+            display: flex; 
+            width: 500%; /* Espaço para 5 fotos */
+            height: 100%; 
+            transition: transform 0.8s ease-in-out; 
+        }
         
         .slide { 
             width: 20%; 
             height: 100%; 
-            background-size: 100% 100%; /* Garante que a foto aparece toda */
-            background-repeat: no-repeat;
+            background-size: cover; /* Preenche o espaço mantendo a proporção */
             background-position: center; 
             display: flex; 
             align-items: center; 
@@ -64,49 +64,42 @@
         }
 
         .slide-overlay { 
-            background: rgba(10, 42, 77, 0.7); 
+            background: rgba(10, 42, 77, 0.6); 
             color: white; 
-            padding: 30px; 
+            padding: 15px 25px; 
             text-align: center; 
-            width: 70%; 
-            max-width: 600px; 
             border-radius: 4px; 
-            border-top: 4px solid var(--dourado-premium); 
+            border-left: 4px solid var(--dourado-premium);
         }
 
-        .slide-overlay h2 { font-size: 1.8rem; margin: 0 0 10px 0; color: var(--dourado-premium); text-transform: uppercase; }
+        .slide-overlay h2 { font-size: 1.2rem; margin: 0; color: var(--dourado-premium); text-transform: uppercase; }
 
         /* SEÇÕES */
-        .secao { padding: 60px 5%; text-align: center; }
+        .secao { padding: 40px 5%; text-align: center; }
         .bg-cinza { background: var(--cinza-claro); }
         
-        /* SOBRE NÓS */
-        .sobre-container { display: flex; align-items: center; gap: 40px; text-align: left; flex-wrap: wrap; max-width: 1100px; margin: 0 auto; }
-        .sobre-texto { flex: 1; min-width: 300px; }
-        .sobre-texto h2 { color: var(--azul-corporativo); border-left: 5px solid var(--dourado-premium); padding-left: 15px; }
+        .sobre-container { max-width: 900px; margin: 0 auto; text-align: center; }
+        .sobre-texto h2 { color: var(--azul-corporativo); margin-bottom: 20px; }
 
-        /* SERVIÇOS */
-        .grid-servicos { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; }
-        .card { background: var(--branco); padding: 35px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-bottom: 4px solid transparent; }
-        .card:hover { transform: translateY(-10px); border-bottom: 4px solid var(--dourado-premium); }
-        .card i { font-size: 2.5rem; color: var(--azul-corporativo); margin-bottom: 20px; }
+        /* GRID SERVIÇOS */
+        .grid-servicos { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
+        .card { background: var(--branco); padding: 25px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .card i { font-size: 2rem; color: var(--azul-corporativo); margin-bottom: 15px; }
 
         /* BOTÕES */
-        .btn-cta { display: inline-block; padding: 15px 35px; border-radius: 4px; text-decoration: none; font-weight: bold; letter-spacing: 1px; cursor: pointer; border: none; font-size: 0.9rem; }
+        .btn-cta { display: inline-block; padding: 12px 25px; border-radius: 4px; text-decoration: none; font-weight: bold; cursor: pointer; border: none; font-size: 0.85rem; margin-top: 20px; }
         .btn-dourado { background: var(--dourado-premium); color: white; }
         .btn-azul { background: var(--azul-corporativo); color: white; }
         
-        .btn-whatsapp-fixo { position: fixed; bottom: 30px; right: 30px; background-color: var(--whatsapp); color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); z-index: 9999; text-decoration: none; }
+        .btn-whatsapp-fixo { position: fixed; bottom: 20px; right: 20px; background-color: var(--whatsapp); color: white; width: 55px; height: 55px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px; z-index: 9999; text-decoration: none; }
 
-        /* MODAL */
-        #modalSimulador { display:none; position:fixed; z-index:10001; left:0; top:0; width:100%; height:100%; background-color: rgba(0,0,0,0.85); align-items: center; justify-content: center; }
+        /* MODAL SIMULADOR */
+        #modalSimulador { display:none; position:fixed; z-index:10001; left:0; top:0; width:100%; height:100%; background-color: rgba(0,0,0,0.8); align-items: center; justify-content: center; }
 
         @media (max-width: 768px) { 
             nav { display: none; } 
-            .slider-container { aspect-ratio: 4 / 3; } 
-            .slide-overlay h2 { font-size: 1.2rem; }
-            .sobre-container { text-align: center; }
-            .sobre-texto h2 { border-left: none; padding-left: 0; }
+            .slider-container { height: 25vh; } 
+            .slide-overlay h2 { font-size: 1rem; }
         }
     </style>
 </head>
@@ -119,7 +112,7 @@
         </a>
         <nav>
             <a href="#home">Início</a>
-            <a href="#sobre">Sobre nós</a>
+            <a href="#sobre">Sobre</a>
             <a href="#solucoes">Soluções</a>
             <a href="#contacto">Contacto</a>
         </nav>
@@ -128,13 +121,19 @@
     <div class="slider-container" id="home">
         <div class="slides" id="slide-container">
             <div class="slide" style="background-image: url('banner1.png');">
-                <div class="slide-overlay"><h2>Engenharia de Precisão</h2><p>Tecnologia de ponta em elevação para Angola.</p></div>
+                <div class="slide-overlay"><h2>Engenharia de Precisão</h2></div>
             </div>
             <div class="slide" style="background-image: url('banner2.png');">
-                <div class="slide-overlay"><h2>Segurança Máxima</h2><p>Sistemas ARD e proteção elétrica integrada.</p></div>
+                <div class="slide-overlay"><h2>Tecnologia Chinesa Certificada</h2></div>
             </div>
             <div class="slide" style="background-image: url('banner3.png');">
-                <div class="slide-overlay"><h2>Manutenção 24h</h2><p>Equipa técnica local sempre disponível em Luanda.</p></div>
+                <div class="slide-overlay"><h2>Manutenção em Luanda 24h</h2></div>
+            </div>
+            <div class="slide" style="background-image: url('banner4.png');">
+                <div class="slide-overlay"><h2>Segurança e Inovação</h2></div>
+            </div>
+            <div class="slide" style="background-image: url('banner5.png');">
+                <div class="slide-overlay"><h2>Sistemas de Resgate ARD</h2></div>
             </div>
         </div>
     </div>
@@ -143,11 +142,7 @@
         <div class="sobre-container">
             <div class="sobre-texto">
                 <h2>Sobre a ENGELEVATECH</h2>
-                <p>A <strong>ENGELEVATECH</strong> é uma referência em engenharia de transporte vertical em Angola. Somos especialistas na importação, instalação e assistência técnica de elevadores modernos.</p>
-                <p>O nosso foco é trazer o que há de melhor na tecnologia global para os edifícios de Angola, garantindo que cada viagem seja segura, suave e eficiente.</p>
-            </div>
-            <div style="flex: 1; min-width: 300px; text-align: center;">
-                <i class="fas fa-building" style="font-size: 8rem; color: var(--cinza-claro);"></i>
+                <p>Somos especialistas em elevar o padrão de Angola com tecnologia avançada e engenharia de rigor. Importamos, instalamos e mantemos o seu elevador com foco total na segurança.</p>
             </div>
         </div>
     </section>
@@ -155,16 +150,16 @@
     <section class="secao bg-cinza" id="solucoes">
         <h2>Nossas Soluções</h2>
         <div class="grid-servicos">
-            <div class="card"><i class="fas fa-home"></i><h3>Residenciais</h3><p>Elevadores elegantes e silenciosos para a sua moradia.</p></div>
-            <div class="card"><i class="fas fa-industry"></i><h3>Carga e Industrial</h3><p>Robustez técnica para grandes pesos e logística.</p></div>
-            <div class="card"><i class="fas fa-hotel"></i><h3>Comerciais</h3><p>Eficiência para prédios de escritórios e hotéis.</p></div>
+            <div class="card"><i class="fas fa-home"></i><h3>Residenciais</h3></div>
+            <div class="card"><i class="fas fa-industry"></i><h3>Carga</h3></div>
+            <div class="card"><i class="fas fa-hotel"></i><h3>Comerciais</h3></div>
         </div>
 
-        <div style="margin-top: 50px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
             <button class="btn-cta btn-dourado" onclick="abrirSimulador()">
                 <i class="fas fa-calculator"></i> SIMULAR EM KWANZAS
             </button>
-            <a href="https://wa.me/244924433318?text=Olá! Gostaria de solicitar uma consulta técnica da ENGELEVATECH." class="btn-cta btn-azul" target="_blank">
+            <a href="https://wa.me/244924433318?text=Olá! Desejo uma consulta técnica da ENGELEVATECH." class="btn-cta btn-azul" target="_blank">
                 <i class="fab fa-whatsapp"></i> SOLICITAR CONSULTA
             </a>
         </div>
@@ -173,54 +168,69 @@
     <a href="https://wa.me/244924433318" class="btn-whatsapp-fixo" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
     <div id="modalSimulador">
-        <div style="background: white; padding: 30px; border-radius: 8px; width: 95%; max-width: 450px; border-top: 5px solid var(--dourado-premium); position: relative;">
-            <span onclick="fecharSimulador()" style="position: absolute; right: 20px; top: 10px; font-size: 28px; cursor: pointer; color: #666;">&times;</span>
+        <div style="background: white; padding: 25px; border-radius: 8px; width: 90%; max-width: 400px; border-top: 5px solid var(--dourado-premium); position: relative;">
+            <span onclick="fecharSimulador()" style="position: absolute; right: 15px; top: 5px; font-size: 25px; cursor: pointer;">&times;</span>
             <h3 style="color: var(--azul-corporativo); margin-top: 0;">Simulador ENGELEVATECH</h3>
             
-            <div style="text-align: left; margin-top: 15px;">
-                <label style="font-weight: bold; font-size: 0.9rem;">Número de Pisos:</label>
-                <input type="number" id="pisos" placeholder="Ex: 4" style="width: 100%; padding: 12px; margin: 10px 0 20px 0; border: 1px solid #ccc; border-radius: 4px;">
+            <div style="text-align: left; margin-top: 10px;">
+                <label style="font-weight: bold; font-size: 0.85rem;">Número de Pisos:</label>
+                <input type="number" id="pisos" placeholder="Ex: 4" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px;">
 
-                <label style="font-weight: bold; font-size: 0.9rem;">Tipo de Equipamento:</label>
-                <select id="capacidade" style="width: 100%; padding: 12px; margin: 10px 0 20px 0; border: 1px solid #ccc; border-radius: 4px;">
-                    <option value="45000000">Residencial (Standard)</option>
-                    <option value="65000000">Comercial (Alta Performance)</option>
-                    <option value="85000000">Carga / Industrial</option>
+                <label style="font-weight: bold; font-size: 0.85rem;">Tipo:</label>
+                <select id="capacidade" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px;">
+                    <option value="45000000">Residencial</option>
+                    <option value="65000000">Comercial</option>
+                    <option value="85000000">Carga</option>
                 </select>
 
-                <button onclick="calcularOrcamento()" style="width: 100%; background: var(--dourado-premium); color: white; padding: 15px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer;">CALCULAR AGORA</button>
+                <button onclick="calcularOrcamento()" style="width: 100%; background: var(--dourado-premium); color: white; padding: 12px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer;">CALCULAR</button>
             </div>
 
-            <div id="resultado" style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 4px; display: none; text-align: center; border: 1px dashed var(--dourado-premium);">
-                <span style="color: var(--azul-corporativo); font-size: 1.3rem; font-weight: bold;" id="valor-aoa">0</span> <small>Kz</small>
-                <hr style="opacity: 0.1; margin: 15px 0;">
-                <a id="btn-validar-wa" href="#" target="_blank" style="color: var(--whatsapp); text-decoration: none; font-weight: bold; font-size: 0.9rem;">
-                    <i class="fab fa-whatsapp"></i> Validar no WhatsApp
+            <div id="resultado" style="margin-top: 15px; padding: 10px; background: #f8f9fa; display: none; text-align: center;">
+                <span style="color: var(--azul-corporativo); font-weight: bold;" id="valor-aoa">0</span> Kz
+                <br>
+                <a id="btn-validar-wa" href="#" target="_blank" style="color: var(--whatsapp); text-decoration: none; font-size: 0.8rem; font-weight: bold;">
+                    Confirmar no WhatsApp
                 </a>
             </div>
         </div>
     </div>
 
-    <footer style="background: var(--azul-corporativo); color: white; padding: 40px 5%; text-align: center; border-top: 5px solid var(--dourado-premium);" id="contacto">
-        <p style="font-weight: bold; font-size: 1.1rem;">ENGELEVATECH - Engenharia e Tecnologia de Elevação, Lda.</p>
-        <p>Luanda, Angola | <i class="fas fa-phone"></i> 924 433 318</p>
-        <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 20px;">&copy; 2026 Todos os direitos reservados.</p>
+    <footer style="background: var(--azul-corporativo); color: white; padding: 30px 5%; text-align: center;">
+        <p style="font-weight: bold; font-size: 0.9rem;">&copy; 2026 ENGELEVATECH, Lda.</p>
+        <p style="font-size: 0.7rem; opacity: 0.6;">Luanda, Angola | 924 433 318</p>
     </footer>
 
     <script>
-        // Banner Slider
+        // BANNER DINÂMICO (PASSAGEM DE FOTOS)
         const container = document.getElementById('slide-container');
         let index = 0;
-        setInterval(() => {
-            index = (index + 1) % 3;
-            container.style.transform = `translateX(${-index * 20}%)`;
-        }, 5000);
+        const totalSlides = 5; // Ajusta se tiveres mais fotos
 
-        // Funções Modal
+        setInterval(() => {
+            index = (index + 1) % totalSlides;
+            container.style.transform = `translateX(${-index * 20}%)`;
+        }, 4000); // Muda a cada 4 segundos
+
+        // FUNÇÕES DO SIMULADOR
         function abrirSimulador() { document.getElementById('modalSimulador').style.display = 'flex'; }
         function fecharSimulador() { document.getElementById('modalSimulador').style.display = 'none'; }
 
         function calcularOrcamento() {
             const pisos = document.getElementById('pisos').value;
             const baseValue = document.getElementById('capacidade').value;
-            const display = document.getElementById('resultado');
+            if(pisos > 0) {
+                let total = parseInt(baseValue) + (parseInt(pisos) * 2500000); 
+                let valorFormatado = total.toLocaleString('pt-AO');
+                document.getElementById('valor-aoa').innerText = valorFormatado;
+                document.getElementById('resultado').style.display = 'block';
+
+                const msg = `Simulação ENGELEVATECH: Elevador de ${pisos} pisos. Valor estimado: ${valorFormatado} Kz.`;
+                document.getElementById('btn-validar-wa').href = `https://wa.me/244924433318?text=${encodeURIComponent(msg)}`;
+            } else { alert("Indique os pisos."); }
+        }
+
+        window.onclick = function(event) { if (event.target == document.getElementById('modalSimulador')) fecharSimulador(); }
+    </script>
+</body>
+</html>
