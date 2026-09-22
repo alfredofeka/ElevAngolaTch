@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 250"><rect width="300" height="250" fill="#0f2a48"/><rect x="50.34375" y="28" width="199.3125" height="174" fill="rgba(255,255,255,.06)" stroke="#dbe6f1" stroke-width="1.4"/>
+      <rect x="56.34375" y="34" width="187.3125" height="162" fill="#0f2a48" stroke="#dbe6f1" stroke-width=".8" stroke-dasharray="4 3"/>
+      <rect x="89.25" y="45.1875" width="121.50000000000001" height="131.625" fill="rgba(201,162,39,.16)" stroke="#c9a227" stroke-width="2"/>
+      <line x1="109.5" y1="176.8125" x2="190.5" y2="176.8125" stroke="#0f2a48" stroke-width="4"/>
+      <line x1="109.5" y1="176.8125" x2="190.5" y2="176.8125" stroke="#c9a227" stroke-width="1.6" stroke-dasharray="3 2"/>
+      <text x="150" y="115" text-anchor="middle" font-size="12" font-weight="700" fill="#dbe6f1" font-family="Inter,Arial,sans-serif">1200 × 1300</text>
+      <text x="150" y="129" text-anchor="middle" font-size="9" fill="#b9c8d9" font-family="Inter,Arial,sans-serif">cabine (mm)</text>
+      <text x="150" y="218" text-anchor="middle" font-size="11" fill="#b9c8d9" font-family="Inter,Arial,sans-serif">caixa 1850 × 1600 mm</text></svg>
